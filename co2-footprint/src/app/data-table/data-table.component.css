@@ -1,0 +1,17 @@
+.famfamfam-flags {
+  display: inline-flex;
+  margin-right: 10px;
+}
+
+td {
+}
+
+tr {
+  line-height: 40px;
+}
+
+.datatable-header-search-icon {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+

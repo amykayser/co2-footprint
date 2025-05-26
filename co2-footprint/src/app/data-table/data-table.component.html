@@ -1,85 +1,107 @@
-<p-table
-  #dt2
-  [rowsPerPageOptions]="[10, 25, 50]"
-  [rows]="10"
-  [value]="emissions"
-  dataKey="id">
-
-  <!--
-  <ng-template #caption>
-    <div class="flex">
-      <p-iconfield iconPosition="left" class="ml-auto">
-        <p-inputicon>
-          <i class="pi pi-search"></i>
-        </p-inputicon>
-        <input pInputText type="text" (input)="dt2.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
-      </p-iconfield>
+<!-- Länder -->
+<p-table #table
+         [value]="emissionsCountries"
+         [rows]="10"
+         [paginator]="true"
+         [globalFilterFields]="['name', 'emissionMt', 'growthRate', 'worldShare']"
+>
+  <ng-template pTemplate="caption">
+    <div>
+      <h3>CO2-Emissionen nach Land</h3>
     </div>
-  </ng-template>-->
-  <ng-template #header>
+    <div class="p-d-flex p-jc-between p-ai-center">
+              <span class="p-input-icon-left">
+                <i class="pi pi-search datatable-header-search-icon"></i>
+                <input pInputText type="text" (input)="table.filterGlobal($any($event.target).value, 'contains')"
+                       placeholder="Suchen">
+              </span>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header">
     <tr>
-      <th>Land / Unternehmen</th>
-      <th>Name</th>
-      <th>Emissionen in Mio. t</th>
-      <th>Branche</th>
-    </tr>
-    <tr>
-      <th>
-        <p-columnFilter type="text" field="name" placeholder="Search by name" ariaLabel="Filter Name"></p-columnFilter>
+      <th pSortableColumn="name">Land
+        <p-sortIcon field="name"></p-sortIcon>
       </th>
-      <th>
-        <p-columnFilter type="text" field="country.name" placeholder="Search by country" ariaLabel="Filter Country"></p-columnFilter>
+      <th pSortableColumn="emissionMt">Emissionen (Mio. t)
+        <p-sortIcon field="emissionMt"></p-sortIcon>
       </th>
-      <th>
-        <p-columnFilter field="representative" matchMode="in" [showMenu]="false">
-          <!--
-          <ng-template #filter let-value let-filter="filterCallback">
-            <p-multiselect [(ngModel)]="value" [options]="emissions" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name" style="min-width: 14rem" [panelStyle]="{ minWidth: '16rem' }">
-              <ng-template let-option #item>
-                <div class="flex items-center gap-2">
-                  <img [alt]="option.label" src="https://primefaces.org/cdn/primeng/images/demo/avatar/{{ option.image }}" style="width: 32px" />
-                  <span>{{ option.name }}</span>
-                </div>
-              </ng-template>
-            </p-multiselect>
-          </ng-template>-->
-        </p-columnFilter>
+      <th pSortableColumn="growthRate">Wachstumsrate (%)
+        <p-sortIcon field="growthRate"></p-sortIcon>
       </th>
-      <th>
-        <p-columnFilter field="status" matchMode="equals" [showMenu]="false">
-          <!--<ng-template #filter let-value let-filter="filterCallback">
-            <p-select [(ngModel)]="value" [options]="statuses" (onChange)="filter($event.value)" placeholder="Select One" [showClear]="true" style="min-width: 12rem">
-              <ng-template let-option #item>
-                <p-tag [value]="option.value" [severity]="getSeverity(option.value)" />
-              </ng-template>
-            </p-select>
-          </ng-template>-->
-        </p-columnFilter>
+      <th pSortableColumn="worldShare">Weltanteil (%)
+        <p-sortIcon field="worldShare"></p-sortIcon>
       </th>
     </tr>
   </ng-template>
-  <ng-template #body let-emissions>
+
+  <ng-template pTemplate="body" let-emission>
     <tr>
       <td>
-        {{ emissions.type }}
+        <div class="famfamfam-flags {{ emission.countryCode}}"></div>
+        <span>{{ emission.name }}</span>
       </td>
-      <td>
-        <div class="flex items-center gap-2">
-          <span class="flag-icon" [ngClass]="'flag-icon-' + emissions.countryCode"></span>
-          <span>{{ emissions.name }}</span>
-        </div>
-      </td>
-      <td>
-        {{ emissions.emissionMt }}
-      </td>
-      <td>
-        {{ emissions.year }}
-      </td>
+      <td>{{ emission.emissionMt }}</td>
+      <td [ngClass]="{
+                  'negative' : emission.growthRate > 0,
+                  'positive' : emission.growthRate < 0
+               }">
+        {{ emission.growthRate }} %</td>
+      <td>{{ emission.worldShare }} %</td>
     </tr>
   </ng-template>
-  <ng-template #emptymessage>
+</p-table>
+
+<section class="cta">
+  <h2 class="main-heading">Lorem ipsum</h2>
+  <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+</section>
+
+<!-- Unternehmen -->
+<p-table #table
+         [value]="emissionsCompany"
+         [rows]="10"
+         [globalFilterFields]="['name', 'emissionMt', 'industry', 'headquarters']"
+         [rowsPerPageOptions]="[5,10,20]"
+>
+  <ng-template pTemplate="caption">
+    <div>
+      <h3>CO2-Emissionen nach Unternehmen</h3>
+    </div>
+    <div class="p-d-flex p-jc-between p-ai-center">
+              <span class="p-input-icon-left">
+                <i class="pi pi-search datatable-header-search-icon"></i>
+                <input pInputText type="text" (input)="table.filterGlobal($any($event.target).value, 'contains')"
+                       placeholder="Suchen">
+              </span>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="header">
     <tr>
-      <td colspan="5">No customers found.</td>
+      <th pSortableColumn="name">Unternehmen
+        <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="emissionMt">Emissionen (Mio. t)
+        <p-sortIcon field="emissionMt"></p-sortIcon>
+      </th>
+      <th pSortableColumn="industry">Industriezweig
+        <p-sortIcon field="industry"></p-sortIcon>
+      </th>
+      <th pSortableColumn="headquarters">Hauptsitz
+        <p-sortIcon field="headquarters"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-emission>
+    <tr>
+      <td>{{ emission.name }}</td>
+      <td>{{ emission.emissionMt }}</td>
+      <td>{{ emission.industry }}</td>
+      <td><div class="famfamfam-flags {{ emission.countryCode}}"></div>
+        <span>{{ emission.headquarters }}</span>
+      </td>
     </tr>
   </ng-template>
 </p-table>

@@ -1,3 +1,123 @@
-.banner-image {
+.desktop-navigation {
+  display: flex;
+  align-items: center;         /* vertikal zentriert */
+  justify-content:  center; /* optional: Platz zwischen Logo & Links */
+  padding: 0 1rem;
+  position: absolute;
+  height: 80px;
   width: 100%;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+}
+
+.nav-points {
+  display: flex;
+  gap: 6em;
+  margin: 0 2em;
+}
+.nav-point {
+  padding: 10px;
+  margin: 0 2em;
+
+  color: white;
+  text-decoration: none;
+}
+
+.nav-point:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 10px;
+}
+
+.title-heading {
+  color: white;
+}
+
+.title-subtext {
+  color: white;
+}
+
+.banner-image {
+  min-height: 300px;
+  width: 100%;
+}
+
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.mobile-nav-btn {
+  position: absolute;
+  right: 25px;
+  color: var(--albaster-white);
+  height: 100%;
+}
+
+.mobile-nav-btn i {
+  font-size: 25px;
+}
+
+.mobile-nav-logo {
+  display: inline;
+  min-height: 25px;
+  max-height: 35px;
+  justify-self: center;
+}
+
+.mobile-navigation {
+  display: inline;
+  position: absolute;
+  max-height: 60px;
+  width: 100%;
+  padding: 1em;
+}
+
+.mobile-nav-open {
+  display: grid;
+  position: relative;
+  z-index: 3;
+  margin-top: 15px;
+  background-color: rgba(50,50,50, 0.7);
+}
+
+.mobile-nav-closed {
+  display: none;
+  position: absolute;
+}
+
+.title-text {
+  position: absolute;
+  z-index: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-down-arrows {
+  position: absolute;
+  align-self: flex-end;
+  height: 100px;
+}
+
+/* reading styles */
+.changeReadingStyle {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  right: 0;
+
+  color: white;
+}
+
+.reading-ltr {
+  text-align: left;
+}
+
+.reading-rtl {
+  text-align: right;
 }

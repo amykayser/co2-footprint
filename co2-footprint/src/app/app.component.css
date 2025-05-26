@@ -1,0 +1,6 @@
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  border-top-color: white;
+  border-left-color: white;
+  border-right-color: white;
+  border-bottom: 2px solid whitesmoke;
+}

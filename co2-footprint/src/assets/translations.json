@@ -1,0 +1,18 @@
+{
+  "de": {
+    "menu-point-mission": "Unsere Mission",
+    "menu-point-data": "Zahlen & Fakten",
+    "menu-point-links": "Externe Links",
+    "menu-point-contact": "Kontakt",
+    "header-heading": "Verantwortung beginnt mit Transparenz",
+    "header-text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr."
+  },
+  "ar": {
+    "menu-point-mission": "مهمتنا",
+    "menu-point-data": "حقائق وأرقام",
+    "menu-point-links": "الروابط الخارجية",
+    "menu-point-contact": "اتصل بنا",
+    "header-heading": "المسؤولية تبدأ بالشفافية",
+    "header-text": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr."
+  }
+}

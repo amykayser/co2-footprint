@@ -1,18 +1,103 @@
+/* Fonts */
+@font-face {
+  font-family: Lexend;
+  src: url('assets/fonts/Lexend-Regular.ttf') format('truetype');
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lexend', sans-serif;
+  font-weight: bolder;
+}
+
+a, p {
+  font-family: 'Lexend', sans-serif;
+  font-weight: 400;
+}
+
+/* Colors */
+:root {
+  --moss-green: #829858;
+  --field-gray: #3D5248;
+  --albaster-white: #E6E3DA;
+  --ash-gray: #9BB7BA;
+  --gunmetal: #1D262B;
+  --tomato: #F95738;
+}
+
+button {
+  all: unset;
+}
 
 section {
   padding-top: 25px;
   padding-bottom: 25px;
 }
 
-.wrapper {
+.wrapper:not(.cta) {
   max-width: 1000px;
   margin: auto;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
+.cta {
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
+.main-heading {
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  color: var(--field-gray)
+}
 
+.subheading {
+  font-weight: normal;
+  font-size: 1em;
+  text-align: center;
+  color: var(--moss-green)
+}
+
+.subheading-paragraph {
+  font-weight: normal;
+  font-size: 1em;
+  color: var(--moss-green)
+}
+
+.heading-underline {
+  background-color: var(--moss-green);
+  height: 2px;
+  width: 15%;
+  margin: auto;
+  margin-bottom: 25px;
+}
+
+.positive {
+  color: var(--moss-green);
+}
+
+.negative {
+  color: var(--tomato);
+}
+
+.p-datatable-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-datatable {
+  margin-top: 3em;
+  margin-bottom: 2em;
+}
+
+@media only screen and (max-width: 1024px) {
+  .wrapper:not(.cta) {
+    max-width: 800px;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .wrapper:not(.cta) {
+    padding: 20px;
+  }
+}

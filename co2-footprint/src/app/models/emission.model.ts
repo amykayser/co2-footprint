@@ -5,4 +5,7 @@ export interface Emission {
   emissionMt: number;
   year: number;
   industry?: string;
+  headquarters?: string;
+  growthRate?: number;
+  worldShare?: number;
 }
