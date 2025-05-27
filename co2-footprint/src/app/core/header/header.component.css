@@ -41,7 +41,7 @@
 }
 
 .banner-image {
-  min-height: 300px;
+  min-height: 400px;
   width: 100%;
 }
 
@@ -96,6 +96,7 @@
   z-index: 1;
   flex-direction: column;
   align-items: center;
+  width: 50%;
 }
 
 .scroll-down-arrows {
@@ -111,7 +112,12 @@
   top: 0;
   right: 0;
 
-  color: white;
+  color: var(--gunmetal);
+}
+
+.changeReadingStyle div {
+  display: inline-block;
+  margin-right: 5px;
 }
 
 .reading-ltr {
@@ -120,4 +126,16 @@
 
 .reading-rtl {
   text-align: right;
+}
+
+.reading-ltr.title-text {
+  left: 10%;
+}
+
+.title-text.reading-rtl {
+  right: 10%;
+}
+
+.languageDropdown {
+  position: absolute;
 }

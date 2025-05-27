@@ -25,3 +25,16 @@ section {
 .subheading {
   margin: 0;
 }
+
+.contact-btn {
+  background-color: var(--field-gray);
+  padding: 16px 20px;
+  color: white;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.contact-btn:hover {
+  background-color: var(--moss-green);
+  color: white;
+}

@@ -3,33 +3,33 @@
     <img class="mobile-nav-logo" src="assets/images/GreenTrace-Logo-white.png" alt="GreenTrace logo">
     <button (click)="toggleMobileMenu()" class="mobile-nav-btn"><i class="pi pi-bars" ></i></button>
     <div [ngClass]="[mobileNavStyle]">
-      <a class="nav-point" href="#mission">Unsere Mission</a>
-      <a class="nav-point" href="#datatables">Zahlen & Fakten</a>
-      <a class="nav-point" href="#morelinks">Externe Links</a>
-      <a class="nav-point" href="#contact">Kontakt</a>
+      <a [ngClass]="[readingStyle]" class="nav-point" routerLink="/home" fragment="mission">{{ t('menu-point-mission') }}</a>
+      <a [ngClass]="[readingStyle]" class="nav-point" routerLink="/home" fragment="datatables">{{ t('menu-point-data') }}</a>
+      <a [ngClass]="[readingStyle]" class="nav-point" routerLink="/home" fragment="morelinks">{{ t('menu-point-links') }}</a>
+      <a [ngClass]="[readingStyle]" class="nav-point" routerLink="/home" fragment="contact">{{ t('menu-point-contact') }}</a>
     </div>
   </nav>
 
-
-  <button class="changeReadingStyle" (click)="toggleLTRandRTL()">LTR <-> RTL</button>
+  <button class="changeReadingStyle" (click)="toggleLTRandRTL()">
+    <span><div class="famfamfam-flags {{ currentLanguage }}"></div>{{ t('menu-switch-language') }}</span>
+  </button>
 
   <nav *ngIf="!mobileViewport" class="desktop-navigation">
     <div class="nav-points">
-      <a [ngClass]="[readingStyle]" class="nav-point" href="#mission">{{ t('menu-point-mission') }}</a>
-      <a [ngClass]="[readingStyle]" class="nav-point" href="#datatables">{{ t('menu-point-data') }}</a>
+      <a [ngClass]="[readingStyle]" class="nav-point" [routerLink]="'/home'" fragment="mission">{{ t('menu-point-mission') }}</a>
+      <a [ngClass]="[readingStyle]" class="nav-point" [routerLink]="'/home'" fragment="datatables">{{ t('menu-point-data') }}</a>
       <img class="nav-logo" src="assets/images/GreenTrace-Logo-white.png" alt="GreenTrace logo">
-      <a [ngClass]="[readingStyle]" class="nav-point" href="#morelinks">{{ t('menu-point-links') }}</a>
-      <a [ngClass]="[readingStyle]" class="nav-point" href="#contact">{{ t('menu-point-contact') }}</a>
+      <a [ngClass]="[readingStyle]" class="nav-point" routerLink="/home" fragment="morelinks">{{ t('menu-point-links') }}</a>
+      <a [ngClass]="[readingStyle]" class="nav-point" routerLink="/home" fragment="contact">{{ t('menu-point-contact') }}</a>
     </div>
   </nav>
 
   <div class="banner-container">
     <img class="banner-image" src="assets/images/nature-pollution-banner.jpg" alt="GreenTrace banner">
-    <div class="title-text">
+    <div [ngClass]="[readingStyle]" class="title-text">
       <h1 [ngClass]="[readingStyle]" class="title-heading">{{ t('header-heading') }}</h1>
-      <p class="title-subtext">{{ t('header-text') }}</p>
+      <p [ngClass]="[readingStyle]" class="title-subtext">{{ t('header-text') }}</p>
     </div>
-    <!--<img class="scroll-down-arrows" src="assets/images/arrows-animated.gif" alt="scroll down arrows">-->
   </div>
 
 </header>

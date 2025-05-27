@@ -1,12 +1,14 @@
 import {Component, HostListener} from '@angular/core';
 import {NgClass, NgIf} from '@angular/common';
 import {AppComponent} from '../../app.component';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-header',
   imports: [
     NgIf,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
@@ -21,6 +23,9 @@ export class HeaderComponent {
 
   readingStyle: string = 'reading-ltr';
   mobileNavStyle!: string;
+  languageDropdown!: string;
+
+  public currentLanguage!: string;
 
   /* lower border for responsive breakpoints */
   desktopBreakpoint: number = 1024;
@@ -31,6 +36,8 @@ export class HeaderComponent {
     return this.appComponent.t(key);
   }
   ngOnInit() {
+    this.currentLanguage = this.appComponent.currentLanguage;
+
     this.getScreenWidth = window.innerWidth;
     this.checkViewportWidth();
   }
@@ -43,6 +50,7 @@ export class HeaderComponent {
 
   public checkViewportWidth() {
     this.mobileViewport = this.getScreenWidth < this.desktopBreakpoint ? true : false;
+    this.mobileNavigation = this.getScreenWidth < this.desktopBreakpoint ? true : false;
   }
 
   toggleMobileMenu() {
@@ -59,9 +67,13 @@ export class HeaderComponent {
     if(this.readLTR) {
       this.readingStyle = 'reading-ltr';
       this.appComponent.changeLanguage('de');
+      this.currentLanguage = 'de';
+      console.log(this.appComponent.currentLanguage);
     } else {
       this.readingStyle = 'reading-rtl';
       this.appComponent.changeLanguage('ar');
+      this.currentLanguage = 'ar';
+      console.log(this.appComponent.currentLanguage);
     }
   }
 }
