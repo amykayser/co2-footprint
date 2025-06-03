@@ -68,12 +68,10 @@ export class HeaderComponent {
       this.readingStyle = 'reading-ltr';
       this.appComponent.changeLanguage('de');
       this.currentLanguage = 'de';
-      console.log(this.appComponent.currentLanguage);
     } else {
       this.readingStyle = 'reading-rtl';
       this.appComponent.changeLanguage('ar');
       this.currentLanguage = 'ar';
-      console.log(this.appComponent.currentLanguage);
     }
   }
 }

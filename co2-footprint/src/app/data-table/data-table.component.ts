@@ -10,6 +10,7 @@ import {CommonModule, NgClass} from '@angular/common';
 import {Emission} from '../models/emission.model';
 import {EmissionsService} from '../services/emissions.service';
 import {FormsModule} from '@angular/forms';
+import {Slider} from 'primeng/slider';
 
 @Component({
   selector: 'app-data-table',
@@ -22,7 +23,8 @@ import {FormsModule} from '@angular/forms';
     MultiSelectModule,
     SelectModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    Slider
   ],
   templateUrl: './data-table.component.html',
   styleUrl: './data-table.component.css'

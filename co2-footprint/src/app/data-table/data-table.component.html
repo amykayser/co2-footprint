@@ -22,15 +22,19 @@
     <tr>
       <th pSortableColumn="name">Land
         <p-sortIcon field="name"></p-sortIcon>
+        <p-columnFilter type="text" field="name" display="menu" />
       </th>
       <th pSortableColumn="emissionMt">Emissionen (Mio. t)
         <p-sortIcon field="emissionMt"></p-sortIcon>
+        <p-columnFilter type="numeric" field="emissionMt" display="menu" />
       </th>
       <th pSortableColumn="growthRate">Wachstumsrate (%)
         <p-sortIcon field="growthRate"></p-sortIcon>
+        <p-columnFilter type="numeric" field="growthRate" display="menu" />
       </th>
       <th pSortableColumn="worldShare">Weltanteil (%)
         <p-sortIcon field="worldShare"></p-sortIcon>
+        <p-columnFilter type="numeric" field="worldShare" display="menu" />
       </th>
     </tr>
   </ng-template>
@@ -81,15 +85,19 @@
     <tr>
       <th pSortableColumn="name">Unternehmen
         <p-sortIcon field="name"></p-sortIcon>
+        <p-columnFilter type="text" field="name" display="menu" />
       </th>
       <th pSortableColumn="emissionMt">Emissionen (Mio. t)
         <p-sortIcon field="emissionMt"></p-sortIcon>
+        <p-columnFilter type="numeric" field="emissionMt" display="menu" />
       </th>
       <th pSortableColumn="industry">Industriezweig
         <p-sortIcon field="industry"></p-sortIcon>
+        <p-columnFilter type="text" field="industry" display="menu" />
       </th>
       <th pSortableColumn="headquarters">Hauptsitz
         <p-sortIcon field="headquarters"></p-sortIcon>
+        <p-columnFilter type="text" field="headquarters" display="menu" />
       </th>
     </tr>
   </ng-template>
